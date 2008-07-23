@@ -117,7 +117,7 @@ rm -rf %{buildroot}
 
 %files -n %{libnamedev}
 %defattr(-, root, root)
-%doc CHANGES COPYING PORTING ChangeLog
+%doc COPYING ChangeLog
 %{_includedir}/*
 %{_libdir}/*.la
 %{_libdir}/*.so
