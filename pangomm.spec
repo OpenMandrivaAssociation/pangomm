@@ -1,4 +1,4 @@
-%define version 2.13.6
+%define version 2.13.7
 %define release %mkrel 1
 
 %define glibmm_version 2.14.1
@@ -6,6 +6,7 @@
 %define cairomm_version 1.2.2
 %define name pangomm
 %define api_version 2.4
+%define realapi 1.4
 %define major 1
 %define libname %mklibname %{name} %{api_version} %{major}
 %define libnamedev %mklibname -d %{name} %{api_version}
@@ -112,7 +113,7 @@ rm -rf %{buildroot}
 %files -n %{libname}
 %defattr(-, root, root)
 %doc AUTHORS COPYING NEWS README
-%{_libdir}/libpangomm-1.4.so.%{major}*
+%{_libdir}/libpangomm-%{realapi}.so.%{major}*
 
 
 %files -n %{libnamedev}
@@ -122,7 +123,7 @@ rm -rf %{buildroot}
 %{_libdir}/*.la
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
-%_libdir/pangomm-%api_version
+%_libdir/pangomm-%realapi
 
 %files -n %{libnamestaticdev}
 %defattr(-, root, root)
@@ -131,7 +132,7 @@ rm -rf %{buildroot}
 
 %files doc
 %defattr(-, root, root)
-%doc %{_datadir}/doc/pangomm-%{api_version}
+%doc %{_datadir}/doc/pangomm-%realapi
 %doc %{_datadir}/devhelp/books/*
 
 
