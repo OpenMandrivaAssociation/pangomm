@@ -27,6 +27,7 @@ Source:		http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.b
 BuildRequires:	glibmm2.4-devel >= %{glibmm_version}
 BuildRequires:	libpango-devel >= %pango_version
 BuildRequires:	cairomm-devel  >= %cairomm_version
+BuildRequires:	mm-common
 
 %description
 Pangomm provides a C++ interface to the Pango library. Highlights
