@@ -1,5 +1,5 @@
 %define version 2.28.2
-%define release %mkrel 3
+%define release %mkrel 4
 
 %define glibmm_version 2.14.1
 %define pango_version 1.5.2
