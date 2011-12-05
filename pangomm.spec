@@ -1,10 +1,7 @@
-%define version 2.28.4
-%define release %mkrel 1
-
 %define glibmm_version 2.14.1
 %define pango_version 1.5.2
 %define cairomm_version 1.2.2
-%define name pangomm
+
 %define api_version 2.4
 %define realapi 1.4
 %define major 1
@@ -15,18 +12,17 @@
 %define olddevelname %mklibname -d gtkmm %api_version
 %define oldstaticname %mklibname -s -d gtkmm %api_version
 
-Name:		%{name}
+Name:		pangomm
 Summary:	C++ interface for the pango library
-Version:	%{version}
-Release:	%{release}
+Version:	2.28.4
+Release:	2
 License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://gtkmm.org/
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Source:		http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 BuildRequires:	glibmm2.4-devel >= %{glibmm_version}
-BuildRequires:	libpango-devel >= %pango_version
-BuildRequires:	cairomm-devel  >= %cairomm_version
+BuildRequires:	libpango-devel >= %{pango_version}
+BuildRequires:	cairomm-devel  >= %{cairomm_version}
 BuildRequires:	mm-common
 
 %description
@@ -55,7 +51,7 @@ linked with %{name}.
 %package	-n %{libnamedev}
 Summary:	Headers and development files of %{name}
 Group:		Development/GNOME and GTK+
-Requires:	%{libname} = %{version}
+Requires:	%{libname} = %{version}-%{release}
 Provides:	%{name}%{api_version}-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
 Requires:	glibmm2.4-devel >= %{glibmm_version}
@@ -64,17 +60,6 @@ Conflicts:	%olddevelname < 2.13.5
 %description	-n %{libnamedev}
 This package contains the headers and development files that are needed,
 when trying to develop or compile applications which need %{name}.
-
-
-%package	-n %{libnamestaticdev}
-Summary:	Static libraries of %{name}
-Group:		Development/GNOME and GTK+
-Requires:	%{libnamedev} = %{version}
-Provides:	%{name}-static-devel = %{version}-%{release}
-Conflicts:	%oldstaticname < 2.13.5
-
-%description	-n %{libnamestaticdev}
-This package contains the static libraries of %{name}.
 
 
 %package	doc
@@ -94,7 +79,10 @@ this documentation with devhelp, a documentation reader.
 %setup -q -n %{name}-%{version}
 
 %build
-%configure2_5x --enable-static --enable-shared
+%configure2_5x \
+    --enable-static \
+    --enable-shared \
+    --disable-static
 %make
 
 # make check does nothing
@@ -102,38 +90,20 @@ this documentation with devhelp, a documentation reader.
 %install
 rm -rf %{buildroot}
 %makeinstall_std
-
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-%clean
-rm -rf %{buildroot}
+find %{buildroot} -name \*.la|xargs rm -f
 
 %files -n %{libname}
-%defattr(-, root, root)
-%doc AUTHORS COPYING NEWS README
 %{_libdir}/libpangomm-%{realapi}.so.%{major}*
 
-
 %files -n %{libnamedev}
-%defattr(-, root, root)
-%doc COPYING ChangeLog
+%doc COPYING ChangeLog AUTHORS COPYING NEWS README
 %{_includedir}/*
-%{_libdir}/*.la
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
-%_libdir/pangomm-%realapi
-
-%files -n %{libnamestaticdev}
-%defattr(-, root, root)
-%doc COPYING
-%{_libdir}/*.a
+%{_libdir}/pangomm-%{realapi}/
 
 %files doc
-%defattr(-, root, root)
-%doc %{_datadir}/doc/pangomm-%realapi
+%doc %{_datadir}/doc/pangomm-%{realapi}/
 %doc %{_datadir}/devhelp/books/*
 
 
