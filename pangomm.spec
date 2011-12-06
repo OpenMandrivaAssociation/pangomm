@@ -21,7 +21,7 @@ Group:		System/Libraries
 URL:		http://gtkmm.org/
 Source:		http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 BuildRequires:	glibmm2.4-devel >= %{glibmm_version}
-BuildRequires:	libpango-devel >= %{pango_version}
+BuildRequires:	pango-devel >= %{pango_version}
 BuildRequires:	cairomm-devel  >= %{cairomm_version}
 BuildRequires:	mm-common
 
@@ -105,5 +105,3 @@ find %{buildroot} -name \*.la|xargs rm -f
 %files doc
 %doc %{_datadir}/doc/pangomm-%{realapi}/
 %doc %{_datadir}/devhelp/books/*
-
-
