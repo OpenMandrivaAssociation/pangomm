@@ -16,11 +16,11 @@ License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://gtkmm.org/
 Source:		http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
-BuildRequires:	glibmm2.4-devel >= 2.14.1
-BuildRequires:	pkgconfig(pango) >= 1.5.2
-BuildRequires:	pkgconfig(pangocairo) >= 1.5.2
-BuildRequires:	cairomm-devel  >= 1.2.2
-BuildRequires:	mm-common
+BuildRequires:	pkgconfig(mm-common-util)
+BuildRequires:	pkgconfig(glibmm-2.4)
+BuildRequires:	pkgconfig(cairomm-1.0)
+BuildRequires:	pkgconfig(pango)
+BuildRequires:	pkgconfig(pangocairo)
 
 %description
 Pangomm provides a C++ interface to the Pango library. Highlights
