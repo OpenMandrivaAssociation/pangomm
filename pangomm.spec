@@ -1,7 +1,3 @@
-%define glibmm_version 2.14.1
-%define pango_version 1.5.2
-%define cairomm_version 1.2.2
-
 %define api_version 2.4
 %define realapi 1.4
 %define major 1
@@ -20,9 +16,10 @@ License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://gtkmm.org/
 Source:		http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
-BuildRequires:	glibmm2.4-devel >= %{glibmm_version}
-BuildRequires:	pango-devel >= %{pango_version}
-BuildRequires:	cairomm-devel  >= %{cairomm_version}
+BuildRequires:	glibmm2.4-devel >= 2.14.1
+BuildRequires:	pkgconfig(pango) >= 1.5.2
+BuildRequires:	pkgconfig(pangocairo) >= 1.5.2
+BuildRequires:	cairomm-devel  >= 1.2.2
 BuildRequires:	mm-common
 
 %description
@@ -54,13 +51,11 @@ Group:		Development/GNOME and GTK+
 Requires:	%{libname} = %{version}-%{release}
 Provides:	%{name}%{api_version}-devel = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
-Requires:	glibmm2.4-devel >= %{glibmm_version}
 Conflicts:	%olddevelname < 2.13.5
 
 %description	-n %{libnamedev}
 This package contains the headers and development files that are needed,
 when trying to develop or compile applications which need %{name}.
-
 
 %package	doc
 Summary:	GTKmm documentation
@@ -76,7 +71,7 @@ This package contains all API documentation for pangomm. You can readily read
 this documentation with devhelp, a documentation reader.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 
 %build
 %configure2_5x \
