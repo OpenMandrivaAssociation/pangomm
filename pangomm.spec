@@ -13,6 +13,7 @@ License:	LGPLv2+
 Group:		System/Libraries
 URL:		http://gtkmm.org/
 Source:		http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
+Source100:	pangomm.rpmlintrc
 BuildRequires:	pkgconfig(mm-common-util)
 BuildRequires:	pkgconfig(glibmm-2.4)
 BuildRequires:	pkgconfig(cairomm-1.0)
