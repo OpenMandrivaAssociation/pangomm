@@ -7,12 +7,12 @@
 
 Summary:	C++ interface for the pango library
 Name:		pangomm
-Version:	2.28.4
-Release:	6
+Version:	2.34.0
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://gtkmm.org/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/pangomm/%{url_ver}/%{name}-%{version}.tar.bz2
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/pangomm/%{url_ver}/%{name}-%{version}.tar.xz
 BuildRequires:	pkgconfig(cairomm-1.0)
 BuildRequires:	pkgconfig(glibmm-2.4)
 BuildRequires:	pkgconfig(mm-common-util)
