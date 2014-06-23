@@ -8,7 +8,7 @@
 Summary:	C++ interface for the pango library
 Name:		pangomm
 Version:	2.34.0
-Release:	6
+Release:	7
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://gtkmm.org/
@@ -28,7 +28,7 @@ quickly create complex user interfaces.
 %package	-n %{libname}
 Summary:	C++ interface for the pango library
 Group:		System/Libraries
-Obsoletes:	%{_lib}pangomm2.4_1 < 2.28.4-6
+Obsoletes:	%{_lib}pangomm2.4_1 <= 2.28.4-6
 
 %description	-n %{libname}
 Gtkmm provides a C++ interface to the GTK+ GUI library. Gtkmm2 wraps GTK+ 2.
@@ -44,7 +44,7 @@ Summary:	Headers and development files of %{name}
 Group:		Development/GNOME and GTK+
 Requires:	%{libname} = %{version}-%{release}
 Provides:	%{name}-devel = %{version}-%{release}
-Obsoletes:	%{_lib}pangomm2.4-devel < 2.28.4-6
+Obsoletes:	%{_lib}pangomm2.4-devel <= 2.28.4-6
 
 %description	-n %{devname}
 This package contains the headers and development files that are needed,
@@ -67,7 +67,7 @@ this documentation with devhelp, a documentation reader.
 %setup -q
 
 %build
-%configure2_5x \
+%configure \
 	--enable-shared \
 	--disable-static
 %make
