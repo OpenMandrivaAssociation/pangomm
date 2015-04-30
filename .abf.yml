@@ -1,4 +1,5 @@
 removed_sources:
   pangomm-2.28.4.tar.bz2: ee83497485e180708dffbf2e68d633ae8d5a36b4
-sources:
   pangomm-2.34.0.tar.xz: 15d89717a390a0c78c01871190c8febd29dad684
+sources:
+  pangomm-2.36.0.tar.xz: eb23bca29b2ea216b58f39292a9c5e5c293716c5
