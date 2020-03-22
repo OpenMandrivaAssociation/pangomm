@@ -8,7 +8,7 @@
 
 Summary:	C++ interface for the pango library
 Name:		pangomm
-Version:	2.42.0
+Version:	2.42.1
 Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
@@ -71,10 +71,10 @@ this documentation with devhelp, a documentation reader.
 %configure \
 	--enable-shared \
 	--disable-static
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files -n %{libname}
 %{_libdir}/libpangomm-%{api}.so.%{major}*
