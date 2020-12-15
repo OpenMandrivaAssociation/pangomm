@@ -8,12 +8,15 @@
 
 Summary:	C++ interface for the pango library
 Name:		pangomm
-Version:	2.42.1
-Release:	2
+Version:	2.42.2
+Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://gtkmm.org/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/pangomm/%{url_ver}/%{name}-%{version}.tar.xz
+
+BuildRequires:	doxygen
+BuildRequires:	meson
 BuildRequires:	pkgconfig(cairomm-1.0)
 BuildRequires:	pkgconfig(glibmm-2.4)
 BuildRequires:	pkgconfig(mm-common-util)
@@ -68,13 +71,11 @@ this documentation with devhelp, a documentation reader.
 %setup -q
 
 %build
-%configure \
-	--enable-shared \
-	--disable-static
-%make_build
+%meson
+%meson_build
 
 %install
-%make_install
+%meson_install
 
 %files -n %{libname}
 %{_libdir}/libpangomm-%{api}.so.%{major}*
@@ -85,6 +86,4 @@ this documentation with devhelp, a documentation reader.
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
 %{_libdir}/pangomm-%{api}/
-%doc %{_datadir}/doc/pangomm-%{api}/
-%doc %{_datadir}/devhelp/books/*
 
