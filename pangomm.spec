@@ -86,6 +86,4 @@ this documentation with devhelp, a documentation reader.
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
 %{_libdir}/pangomm-%{api}/
-%doc %{_datadir}/doc/pangomm-%{api}/
-%doc %{_datadir}/devhelp/books/*
 
