@@ -1,6 +1,6 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 
-%define api	1.4
+%define api	2.48
 %define major	1
 %define libname	%mklibname %{name} %{api} %{major}
 %define devname	%mklibname -d %{name}
@@ -8,7 +8,7 @@
 
 Summary:	C++ interface for the pango library
 Name:		pangomm
-Version:	2.42.2
+Version:	2.48.0
 Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
@@ -17,8 +17,9 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/pangomm/%{url_ver}/%{name}-%{ver
 
 BuildRequires:	doxygen
 BuildRequires:	meson
-BuildRequires:	pkgconfig(cairomm-1.0)
-BuildRequires:	pkgconfig(glibmm-2.4)
+BuildRequires:  cmake
+BuildRequires:  pkgconfig(cairomm-1.16)
+BuildRequires:  pkgconfig(glibmm-2.68)
 BuildRequires:	pkgconfig(mm-common-util)
 BuildRequires:	pkgconfig(pango)
 BuildRequires:	pkgconfig(pangocairo)
