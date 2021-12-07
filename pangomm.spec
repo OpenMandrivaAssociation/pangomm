@@ -8,7 +8,7 @@
 
 Summary:	C++ interface for the pango library
 Name:		pangomm
-Version:	2.48.2
+Version:	2.50.0
 Release:	1
 License:	LGPLv2+
 Group:		System/Libraries
