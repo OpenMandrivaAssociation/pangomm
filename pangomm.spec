@@ -82,7 +82,7 @@ this documentation with devhelp, a documentation reader.
 %{_libdir}/libpangomm-%{api}.so.%{major}*
 
 %files -n %{devname}
-%doc COPYING ChangeLog AUTHORS NEWS README*
+%doc COPYING ChangeLog NEWS README*
 %{_includedir}/*
 %{_libdir}/*.so
 %{_libdir}/pkgconfig/*.pc
